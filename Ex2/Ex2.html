@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function escreva()
+        {
+            estringue = new String(document.frm.caracter.value)
+            numero = document.frm.num.value
+            document.write("<table border='1'>")
+                document.write("<tr>")
+                    document.write("<td>")
+                    for (i = 0; i < numero; i++)
+                    {
+                        document.write(estringue)
+                    }
+                    document.write("</td>")
+                document.write("</tr>")
+            document.write("</table>")
+        }
+    </script>
+</head>
+<body>
+    <form name="frm">
+        Caracter: <input type="text" name="caracter">
+        Número Inteiro: <input type="text" name="num">
+        <input type="button" onclick="escreva()">
+    </form>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function enviar()
+        {
+            v = vogal()
+            c = consoante()
+            d = digito()
+            soma = v + c + d
+
+            o = estringue.length - soma
+
+            document.write("<table border='1'>")
+                document.write("<tr>")
+                    document.write('<td>Vogais</td>')
+                    document.write(`<td>${v}</td>`)
+                document.write("</tr>")
+                document.write("<tr>")
+                    document.write('<td>Consoantes</td>')
+                    document.write(`<td>${c}</td>`)
+                document.write("</tr>")
+                document.write("<tr>")
+                    document.write(`<td>Digitos</td>`)
+                    document.write(`<td>${d}</td>`)
+                document.write("</tr>")
+                document.write("<tr>")
+                    document.write(`<td>Outros</td>`)
+                    document.write(`<td>${o}</td>`)
+                document.write("</tr>")
+            document.write("</table>")
+        }
+
+        function digito()
+        {
+            digitos = 0
+            for (i = 0; i < 10; i++)
+            {
+                for (s = 0; s < estringue.length; s++)
+                {
+                    if (i == estringue[s] && estringue[s] != " ")
+                    {digitos += 1}
+                }
+            }
+            return digitos
+        }
+
+        function consoante()
+        {
+            consoant = 0
+            con = "B,C,D,F,G,H,J,K,L,M,N,P,Q,R,S,T,V,W,X,Y,Z"
+            consol = con.split(",")
+            for (i = 0; i < consol.length; i++)
+            {
+                for (s = 0; s < estringue.length; s++)
+                {
+                    if (consol[i] == estringue[s])
+                    {consoant += 1}
+                }
+            }
+            return consoant
+        }
+
+        function vogal()
+        {
+            estringue = new String(document.frm.str.value).toUpperCase()
+            vogais = 0
+            outros = 0
+
+            vog = ["A", "E", 'I', 'O', 'U']
+            for (i = 0; i < vog.length; i++)
+            {
+                for (s = 0; s < estringue.length; s++)
+                {
+                    if (vog[i] == estringue[s])
+                    {vogais += 1}
+                }
+            }
+            return vogais
+        }
+
+    </script>
+</head>
+<body>
+    <form name="frm">
+        Frase qualquer: <input type="text" name="str"> <br>
+        <input type="button" value="Enviar" onclick="enviar()">
+    </form>
+</body>
+</html>

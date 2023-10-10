@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function catalogo()
+        {
+            nome = document.frm.nome.value
+            palavras = nome.split(" ")
+            ultNome = palavras.pop()
+            catalog = ""
+            catalog += ultNome + ", "
+            for (i = 0; i <= palavras.length - 1; i++)
+            {
+                catalog += palavras[i] + " "
+            }
+            document.write(catalog)
+        }
+    </script>
+</head>
+<body>
+    <form name="frm">
+        Nome: <input type="text" name="nome">
+        <input type="button" value="Enviar" onclick="catalogo()">
+    </form>
+</body>
+</html>

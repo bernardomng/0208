@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function referencia()
+        {
+            nome = document.frm.nome.value
+            palavras = nome.split(" ")
+            n1 = palavras.shift()
+            nUlt = (`<b>${palavras.pop()}</b>`).toUpperCase()
+
+            document.write("primeiro nome: " + n1 + "<br>")
+            document.write("Ultimo nome: " + nUlt + "<br>")
+
+            resto = []
+            for (i = 0; i < palavras.length; i++)
+            {
+                p = palavras[i]
+                resto[i] = p[0].toUpperCase()
+            }
+            document.write("Resto: " + resto + "<br>")
+
+            document.write(`${nUlt}, ${n1} `)
+            for (i = 0; i < palavras.length; i++)
+            {
+                document.write(`${resto[i]}. `)
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="frm">
+        Nome: <input type="text" name="nome">
+        <input type="button" onclick="referencia()">
+    </form>
+</body>
+</html>
